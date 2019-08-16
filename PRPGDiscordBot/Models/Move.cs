@@ -1,16 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PRPGDiscordBot.Commands;
+using System;
 
 namespace PRPGDiscordBot.Models
 {
     [Serializable]
-    public class Move : IMove
+    public class Move
     {
+        private string name;
+        public string Name { get => Format(name); set => name = value; }
 
-    }
+        public string Format(string toFormat)
+        {
+            return toFormat.Replace("-", " ").Capatalize();
+        }
 
-    public interface IMove
-    {
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
